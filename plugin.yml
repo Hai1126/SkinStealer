@@ -2,7 +2,7 @@ name: SkinStealer
 main: SkinStealer\SkinStealer
 api: [3.0.0, 4.0.0]
 version: 1.0.0
-author: [DragKills, SeakHai]
+authors: [DRAGKILLS, SeakHai]
 
 commands:
   skin:
