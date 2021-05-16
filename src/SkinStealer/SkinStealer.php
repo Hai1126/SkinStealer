@@ -14,7 +14,7 @@ class SkinStealer extends PluginBase {
     public $players = [];
 
 	public function onEnable() {
-		$this->getLogger()->info("§aEnabled By DragKills and SeakHai");
+		$this->getLogger()->info("§aEnabled By DRAGKILLS and SeakHai");
 	}
 	
 	public function onCommand(CommandSender $sender, Command $command, String $label, array $args): bool {
@@ -25,7 +25,7 @@ class SkinStealer extends PluginBase {
 	}
 
 	public function Skin($p)
-    {
+        {
         $list = [];
         foreach($this->getServer()->getOnlinePlayers() as $player){
             $list[] = $player->getName();
@@ -35,9 +35,10 @@ class SkinStealer extends PluginBase {
             if($data == null){
                 return true;
             }
-            $args = $this->getServer()->getPlayer($this->players[$p->getName()][$data[1]]);
-            $p->sendMessage("§aSuccessfully stole {$args->getName()}'s skin!");
-            $p->setSkin($args->getSkin());
+            $dataSelected = $this->getServer()->getPlayer($this->players[$p->getName()][$data[1]]);
+            $otherSkin = $dataSelected->getSkin();
+            $p->sendMessage("§aYou Stole {$dataSelected->getName()} Skin!");
+            $p->setSkin($otherSkin);
             $p->sendSkin();
             $p->despawnFromAll();
             $p->spawnToAll();
